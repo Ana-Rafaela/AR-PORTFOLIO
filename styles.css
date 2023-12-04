@@ -1,0 +1,897 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+
+* { /* o asterisco significa geral, o todo */
+    margin: 0px; /* espaçamento externos dos elementos com relação as bordas do site*/
+    padding: 0px; /*espaçamento interno */
+    box-sizing: border-box;
+}
+
+
+:root { /*root significa raiz, ou seja, isso estará na raiz do nosso arquivo*/
+    --color-white: #fff;
+    --color-pink: #d12f7a;
+    --color-black: #0c0c0c;
+    --color-blue: #073fcc;
+    --color-purple:#5f01ac;
+    --color-darkblue:#00001e;
+    --color-blackblue:#030313;
+    --color-darkmagenta:#8e007e; 
+    --color-darkviolet:#9400de;
+    --color-bluegreen: #20c6ef;
+    --color-oceanblue:#00297f; 
+}
+
+html {
+    scroll-behavior: smooth; /*torna a rolagem da página mais suave*/
+    font-size: 10px; /*tamanho da fonte*/
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 15px 30px;
+    position: fixed;
+
+    background: 'transparent';
+    transition: all .3s ease-out;
+
+    z-index: 2;
+}
+
+.header-title {
+    text-decoration: none;
+}
+
+.header-title h1 {
+    color: var(--color-white);
+
+    font-size: 2rem;
+    transition: opacity .3s ease;
+}
+
+.header-title h1:hover {
+    opacity: .8;
+}
+
+.navbar {
+    max-width: 350px;
+    width: 100%;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar ul li {
+    list-style: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--color-white);
+
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#person { /* o hastag serve para pegar a referência do id que queremos estilizar*/ 
+    height: 100vh;  /*height é altura; o 100vh está dizendo que todo o verso o id person no body, irá ocupar a visão da página*/ 
+    width: 100%; /*largura*/
+
+    display: flex; /*o display flex serve para deixar todo o conteúdo do site mais "maleável"*/
+    align-items: center; /* essa tag significa que iremos alinhar os itens no centro, sentido vertical (eixo y)*/ 
+
+
+    background:var(--color-black);
+}
+
+.person-content {/* quando vamos refenciar uma class, colocamos o ponto*/
+    height: 100%; /*altura*/
+    width: 50%; /*largura*/
+
+    display: flex;
+    justify-content: center; /*essa tag é usada para alinhar os itens no centro, senrido horizontal (eixo x)*/
+    align-items: center; /*alinha os itens de forma vertical*/
+
+    flex-direction: column; /*alinha os itens da div em colunas*/
+
+    background: var(--color-darkblue);  /*cor de fundo*/
+}
+
+
+/*para chegarmos na na div que contem o h1 dentro da class person name, precisamos guiar a leitura até o item em questão, e fazemos isso referenciando o h1 na estilização do person-content, igual está abaixo*/
+.person-content div h1 {
+    
+    color: transparent; /*cor da letra*/
+
+    padding: 0px 4px; /*espaçamento interno do item; quando colocamos os números dessa forma, estamos calculando altura e largura do item*/
+    position: relative; /*position pai*/
+    width: fit-content;
+
+    font-size: 4.5rem; /* o "REM" é uma unidade de medida baseada na fonte 'pai' do HTML*/
+    line-height: 6rem; /*o line-height é a altura das linhas (com relação a distância das palavras de cima e de baixo*/
+
+    animation: written_text .5s ease forwards; /*usamos a tag animation para colocar a animação ao título, precisamos refenciar ela no lugar desejado (no caso o h1), depois colocamos colocamos a duração desejada (no caso 5 segundos), o efeito que desejado (no caso ease => efeito suave) e a sua constância, se queremos ele fique ou apareça e suma depois (no caso o forwards => permaneça na tela*/
+}
+
+
+.person-content div h1:nth-child(1) { /*tá referenciando o primeiro h1*/
+    animation-delay: 1s;
+}
+
+.person-content div h1:nth-child(2) { /*tá referenciando o segundo h1*/
+    animation-delay: 2s;
+}
+
+.person-content div h1:nth-child(3) { /*tá referenciando o terceiro h1*/
+    animation: written_text_name .5s ease forwards;
+    animation-delay: 3s;
+}
+
+
+.person-content div h1 span {
+    position: absolute; /*position serve para alterar a posição de um componente; e o absolute irá se referenciar ao "componente pai" que tenha um position definido*/
+    top: 0;
+    left: 0;
+
+    width: 0px;
+    height: 100%;
+    background: var(--color-purple);
+
+    animation: written_text_box 1s ease;
+    animation-delay: .5s;
+}
+
+.person-content div h1:nth-child(1) span{
+    animation-delay: .5s;
+}
+
+.person-content div h1:nth-child(2) span{
+    animation-delay: 1.5s;
+}
+
+.person-content div h1:nth-child(3) span{
+    animation-delay: 2.5s;
+}
+
+.person-name {
+    margin-top: 12rem;
+}
+
+.stacks-content {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+
+    flex-direction: column;
+    margin-top: 6rem;
+}
+
+.stacks-content h3 {
+    color: var(--color-white);
+    font-size: 2.15rem;
+
+    margin-left: 20px;
+}
+
+.stacks {
+    display: flex;
+    align-items: center;
+
+    flex-direction: row;
+}
+
+.stacks ul li {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    margin: 10px;
+    padding: 10px;
+
+    list-style: none; /*serve para tirar aquelas bolinhas de listas que vem nativamente da tag <li></li>*/
+}
+
+.stacks ul li img {
+    width: 30px;
+    height: auto; /*o auto serve para deixar automático*/
+    transition: transform .3s ease; /*colocamos quem vai receber o transition, o tempo e depois o efeito*/
+}
+
+.stacks ul li div img:hover { /*não entendi a função do hover; não entendi a função do transform e do cursor*/
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.stacks ul li div:hover::after { /* 2x dois pontos after é uma pseudo-elemento que serve para adicionarmos propriedades*/
+    content: attr(data);
+    position: absolute;
+    top: 50px;
+    left: 10px;
+
+    width: 20px;
+    height: 20px;
+
+    color: var(--color-white);
+}
+
+
+.person-background {
+    height: 100vh;
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    position: relative; /*position pai*/
+    flex-direction: column;
+
+    background-image: url(./img/img-posfundo1.jpg); /*adiciona uma através da tag background-imagem; caminho fácil para colocar uma imagem como fundo do site*/
+    background-size: cover; /*corrigi o tamanho da imagem como base no height e width indicados acima*/
+    background-position: top center; /*tem que começar no topo e centralizada*/
+
+    z-index: 1;
+}
+
+
+.person-background::after {/*:: after é um pseudo-elentento*/
+    content: "" ;
+    position: absolute; /*position filho*/
+    top: 0; 
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    opacity: 7; /*opacidade do efeito que colocamos*/
+    z-index: -1; /*serve para colocar hierarquia, ou seja, quem tiver a maior hierarquia fica na frente*/
+
+    background: 
+        linear-gradient(270deg, transparent 30%, var(--color-darkblue)), /*linear-gradient serve para colocar efeito gradiente (esfumado) na imagem; o 90deg é a posição dos graus de desejamos colocar o efeito ( nesse caso, o efeito está sendo colocado a 90º graus, ou seja, lado direito), transparent é o efeito desejado; 30% é a intensidade de cor do esfumado (quanto maior o numero, mais claro, e quanto menor mais escuro fica*/
+        linear-gradient(90deg, transparent 30%, var(--color-darkblue)),
+        linear-gradient(10deg, transparent 65%, var(--color-darkblue)); /*quando colocamos vários lineares gradientes, precisamos colocar VIRGULA para separa-los*/
+}
+
+
+/* .wrapper-profile-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 14px;
+    margin: 20px 15px; 
+
+    border-radius: 50%;
+     background:
+        radial-gradient(rgba(0,0,0,0.15) 60%, transparent 0),
+        radial-gradient(#000 68%, transparent 0),
+        linear-gradient(to top right, #ffa500 0%, #ff1493 100%); 
+} */
+
+/* .wrapper-profile-photo img { /*dá pra acessar a tag wrapper tanto pelo nome dela completo, quanto pelo nome de sua classe
+    width: 100%; 
+    height: 100px; fiz alteração no tamanho da imagem por conta
+
+    border-radius: 50%; /*faz arredondamento nas arrestaas das imagens
+
+}  2:25:41 ---- serve para colocar a foto ************ */
+
+
+.links a img {
+    /* margin-top: auto; */
+    width: 30px;
+    height: 30px;
+
+    margin: 10px;
+    filter: brightness(.8);
+    transition: all .3s ease;
+}
+
+.links a img:hover {
+    transform: scale(1.15);
+    filter: brightness(1);
+}
+
+/*FINAL DA PRIMEIRA AULA*/
+
+#about {
+    height: 100vh;
+    width: 100%;
+    background: var(--color-darkblue);
+
+    display: flex;
+    color: var(--color-white);
+}
+
+.background-about {
+    width: 50%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wrapper {
+    height: 100%;
+    width: 100%;
+
+    position: relative;
+}
+
+.img-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background: 
+        linear-gradient(.25turn, transparent 30%, var(--color-darkblue)),
+        linear-gradient(.5turn, transparent 30%, var(--color-darkblue)),
+        linear-gradient(1turn, transparent 65%, var(--color-darkblue));
+}
+
+.img-wrapper img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+}
+
+.box-about {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 50%;
+
+    padding: 3rem;
+}
+
+.section-subtitle h2 p {
+    display: inline-block;
+    font-size: 3.4rem;
+}
+
+.section-subtitle h2 p:nth-child(2) span {
+    padding: 3px 2px;
+    border-radius: 12px;
+
+    color: var(--color-darkblue);
+    background: var(--color-white);
+}
+
+.box-about h3 {
+    margin: 3rem;
+    font-size: 2rem;
+}
+
+.box-about h3 p {
+    display: inline-block;
+
+    width: fit-content;
+    padding: 2px 4px;
+    border-radius: 4px;
+
+    color: var(--color-black);
+    background: var(--color-darkviolet);
+}
+
+.box-about h4 {
+    margin: 1rem 3rem;
+    font-size: 1.5rem;
+}
+
+.box-about h4 p {
+    display: inline;
+    padding: 2px 4px;
+
+    color: var(--color-pink);
+    font-size: bold;
+    font-weight: 1.75rem;
+}
+
+.button-cta {
+    display: flex;
+
+    max-width: 190px;
+    margin: 4rem 3rem;
+}
+
+.button-cta a {
+    display: inline-block;
+
+    width: 100%;
+    max-width: 172px;
+
+    padding: 10px;
+    margin-bottom: 3rem;
+
+    font-size: 1.3rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    letter-spacing: .15rem;
+    color: var(--color-darkblue);
+    background: var(--color-white);
+    text-align: center;
+    text-decoration: none;
+
+
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button-cta a:hover {
+    transition: all .3s ease;
+    filter: brightness(.8);
+}
+
+#projects {
+    height: 100vh;
+    width: 100%;
+    background: var(--color-darkblue);
+
+    display: flex;
+    flex-direction: column;
+
+    color: var(--color-white);
+}
+
+.projects-title h2 {
+    margin: 3rem;
+    padding: 1rem;
+
+    font-size: 3rem;
+    color: var(--color-white);
+}
+
+/* .wrapper-projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    height: 500px;
+    
+    margin-top: 2rem;
+} */
+
+.container-projects {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.swiper {
+    height: 100%;
+    width: 100%;
+    max-width: 1020px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    height: 500px;
+    
+    margin-top: 2rem;
+}
+
+.card-project {
+    /* width: 320px; 
+    height: 450px; */
+
+    height: 100%;
+    width: 100%;
+
+    padding: 30px 20px 20px;
+    /* margin: 0px 10px; */
+
+    position: relative;
+    background: var(--color-white);
+
+    display: flex;
+    align-items: center;    
+    flex-direction: column;
+    
+    border-radius: 20px;
+
+    z-index: 1;
+}
+
+.card-project::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 40%;
+    width: 100%;
+
+    background: var(--color-purple);
+    border-radius: 20px 20px 0px 0px;
+
+    z-index: -1;
+}
+
+/* .content-project {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1;
+
+} */
+
+.image-project {
+    max-height: 240px;
+    max-width: 250px;
+
+    height: 100%;
+    width: 100%;
+
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    
+    border: 4px solid var(--color-purple);
+
+    margin: 0 auto;
+}
+
+.image-project a img  {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    border: 2px solid var(--color-white);
+
+    transition: transform .3s ease-out;
+    cursor: pointer;
+}
+
+.image-project img:hover {
+    transform: scale(1.1);
+}
+
+.card-project span {
+    color: var(--color-black);
+    font-weight: bold;
+    font-size: 1.7rem;
+
+    margin: .75rem auto .5rem auto;
+}
+
+.card-project p {
+    color: #2b2b32;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0rem .75rem;
+}
+
+.cta-project {
+    width: 200px;
+    margin: auto auto 15px auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cta-project a {
+    padding: 5px 16px;
+
+    font-size: 1.35rem;
+    color: var(--color-white);
+    background: var(--color-purple);
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    transition: opacity .3s ease;
+}
+
+.cta-project a:hover {
+    opacity: .7;
+}
+
+#contacts {
+    display: flex;
+    flex-direction: column;
+
+    height: 40vh;
+    width: 100%;
+
+    background: var(--color-darkblue);
+
+    color: var(--color-white);
+}
+
+.contact-icon-content h2 {
+    margin: 3rem 3rem 3rem 0rem;
+    padding: 1rem 1rem 1rem 0rem;
+
+    font-size: 3rem;
+    color: var(--color-white);
+}
+
+.contact-icons-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.contact-icon-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0rem 3rem;
+    padding: 1rem;
+}
+
+.contact-icon {
+    height: 40px;
+    width: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 2rem;
+
+    background: var(--color-white);
+    padding: 1rem;
+    border-radius: 50%;
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    color: var(--color-darkblue);
+}
+
+.contact-info span {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.contact-info p {
+    margin: .25rem 0rem;
+}
+
+.contact-info a {
+    display: block;
+    margin: .25rem 0rem;
+
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+.contact-info a:hover {
+    transition: color .3s ease;
+    color: var(--color-bluegreen);
+}
+
+#footer {
+    height: 15vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: auto;
+
+    background: #030313;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    color: var(--color-white);
+}
+
+
+
+ /*a cor "natural" do h1 ficou como transparente, e adicionamos a animação com a cor branca para que quando o efeito chegue em 100%, a cor determinada (branca), fique em evidência*/ 
+@keyframes written_text {/*o keyframes é o responsável por gerenciar a animação que adicionamos ao site; o written_tex é o nome da variável*/
+    100% { /*condição da variável de todo o texto de boas vindas*/
+        color: var(--color-white); 
+    }
+}
+
+
+@keyframes written_text_name {/*o keyframes é o responsável por gerenciar a animação que adicionamos ao site; o written_tex é o nome da variável, e o name no final é um novo nome na variavel para que o sistema não confunda as duas tags*/
+    100% { /*condição da variável da parte do meu nome*/
+        color: var(--color-pink); 
+    }
+}
+
+
+@keyframes written_text_box {/*o keyframes é o responsável por gerenciar a animação que adicionamos ao site; o written_tex é o nome da variável, e o name no final é um novo nome na variavel para que o sistema não confunda as duas tags*/
+    50% { /*condição da variável da parte do meu nome*/
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+
+    }
+}
+
+@keyframes square-animation {
+    0% {
+     left: 0;
+     top: 0;
+    }
+   
+    10.5% {
+     left: 0;
+     top: 0;
+    }
+   
+    12.5% {
+     left: 32px;
+     top: 0;
+    }
+   
+    23% {
+     left: 32px;
+     top: 0;
+    }
+   
+    25% {
+     left: 64px;
+     top: 0;
+    }
+   
+    35.5% {
+     left: 64px;
+     top: 0;
+    }
+   
+    37.5% {
+     left: 64px;
+     top: 32px;
+    }
+   
+    48% {
+     left: 64px;
+     top: 32px;
+    }
+   
+    50% {
+     left: 32px;
+     top: 32px;
+    }
+   
+    60.5% {
+     left: 32px;
+     top: 32px;
+    }
+   
+    62.5% {
+     left: 32px;
+     top: 64px;
+    }
+   
+    73% {
+     left: 32px;
+     top: 64px;
+    }
+   
+    75% {
+     left: 0;
+     top: 64px;
+    }
+   
+    85.5% {
+     left: 0;
+     top: 64px;
+    }
+   
+    87.5% {
+     left: 0;
+     top: 32px;
+    }
+   
+    98% {
+     left: 0;
+     top: 32px;
+    }
+   
+    100% {
+     left: 0;
+     top: 0;
+    }
+   }
+   
+   .loader {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    transform: rotate(45deg);
+    /* opacity: 7; */
+    /* z-index: 1; */
+   }
+   
+   .loader-square {
+    position: absolute;
+    /* z-index: -1; */
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    margin: 2px;
+    border-radius: 0px;
+    background: white;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: square-animation 10s ease-in infinite both;
+   }
+   
+   .loader-square:nth-of-type(0) {
+    animation-delay: 0s;
+   }
+   
+   .loader-square:nth-of-type(1) {
+    animation-delay: -1.4285714286s;
+   }
+   
+   .loader-square:nth-of-type(2) {
+    animation-delay: -2.8571428571s;
+   }
+   
+   .loader-square:nth-of-type(3) {
+    animation-delay: -4.2857142857s;
+   }
+   
+   .loader-square:nth-of-type(4) {
+    animation-delay: -5.7142857143s;
+   }
+   
+   .loader-square:nth-of-type(5) {
+    animation-delay: -7.1428571429s;
+   }
+   
+   .loader-square:nth-of-type(6) {
+    animation-delay: -8.5714285714s;
+   }
+   
+   .loader-square:nth-of-type(7) {
+    animation-delay: -10s;
+   }
+
+
