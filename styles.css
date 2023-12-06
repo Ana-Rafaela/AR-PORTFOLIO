@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
 
-* { /* o asterisco significa geral, o todo */
-    margin: 0px; /* espaçamento externos dos elementos com relação as bordas do site*/
-    padding: 0px; /*espaçamento interno */
+* { 
+    margin: 0px; 
+    padding: 0px; 
     box-sizing: border-box;
 }
 
 
-:root { /*root significa raiz, ou seja, isso estará na raiz do nosso arquivo*/
+:root {
     --color-white: #fff;
     --color-pink: #d12f7a;
     --color-black: #0c0c0c;
@@ -22,8 +22,8 @@
 }
 
 html {
-    scroll-behavior: smooth; /*torna a rolagem da página mais suave*/
-    font-size: 10px; /*tamanho da fonte*/
+    scroll-behavior: smooth;
+    font-size: 10px; 
 }
 
 body {
@@ -84,63 +84,60 @@ body {
     font-weight: 700;
 }
 
-#person { /* o hastag serve para pegar a referência do id que queremos estilizar*/ 
-    height: 100vh;  /*height é altura; o 100vh está dizendo que todo o verso o id person no body, irá ocupar a visão da página*/ 
-    width: 100%; /*largura*/
+#person { 
+    height: 100vh; 
+    width: 100%; 
 
-    display: flex; /*o display flex serve para deixar todo o conteúdo do site mais "maleável"*/
-    align-items: center; /* essa tag significa que iremos alinhar os itens no centro, sentido vertical (eixo y)*/ 
-
+    display: flex;
+    align-items: center; 
 
     background:var(--color-black);
 }
 
-.person-content {/* quando vamos refenciar uma class, colocamos o ponto*/
-    height: 100%; /*altura*/
-    width: 50%; /*largura*/
+.person-content {
+    height: 100%; 
+    width: 50%; 
 
     display: flex;
-    justify-content: center; /*essa tag é usada para alinhar os itens no centro, senrido horizontal (eixo x)*/
-    align-items: center; /*alinha os itens de forma vertical*/
+    justify-content: center;
+    align-items: center;
 
-    flex-direction: column; /*alinha os itens da div em colunas*/
+    flex-direction: column; 
 
-    background: var(--color-darkblue);  /*cor de fundo*/
+    background: var(--color-darkblue); 
 }
 
-
-/*para chegarmos na na div que contem o h1 dentro da class person name, precisamos guiar a leitura até o item em questão, e fazemos isso referenciando o h1 na estilização do person-content, igual está abaixo*/
 .person-content div h1 {
     
-    color: transparent; /*cor da letra*/
+    color: transparent; 
 
-    padding: 0px 4px; /*espaçamento interno do item; quando colocamos os números dessa forma, estamos calculando altura e largura do item*/
-    position: relative; /*position pai*/
+    padding: 0px 4px; 
+    position: relative; 
     width: fit-content;
 
-    font-size: 4.5rem; /* o "REM" é uma unidade de medida baseada na fonte 'pai' do HTML*/
-    line-height: 6rem; /*o line-height é a altura das linhas (com relação a distância das palavras de cima e de baixo*/
+    font-size: 4.5rem; 
+    line-height: 6rem;
 
-    animation: written_text .5s ease forwards; /*usamos a tag animation para colocar a animação ao título, precisamos refenciar ela no lugar desejado (no caso o h1), depois colocamos colocamos a duração desejada (no caso 5 segundos), o efeito que desejado (no caso ease => efeito suave) e a sua constância, se queremos ele fique ou apareça e suma depois (no caso o forwards => permaneça na tela*/
+    animation: written_text .5s ease forwards; 
 }
 
 
-.person-content div h1:nth-child(1) { /*tá referenciando o primeiro h1*/
+.person-content div h1:nth-child(1) {
     animation-delay: 1s;
 }
 
-.person-content div h1:nth-child(2) { /*tá referenciando o segundo h1*/
+.person-content div h1:nth-child(2) { 
     animation-delay: 2s;
 }
 
-.person-content div h1:nth-child(3) { /*tá referenciando o terceiro h1*/
+.person-content div h1:nth-child(3) { 
     animation: written_text_name .5s ease forwards;
     animation-delay: 3s;
 }
 
 
 .person-content div h1 span {
-    position: absolute; /*position serve para alterar a posição de um componente; e o absolute irá se referenciar ao "componente pai" que tenha um position definido*/
+    position: absolute;
     top: 0;
     left: 0;
 
@@ -170,7 +167,6 @@ body {
 
 .stacks-content {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
 
     flex-direction: column;
@@ -200,21 +196,21 @@ body {
     margin: 10px;
     padding: 10px;
 
-    list-style: none; /*serve para tirar aquelas bolinhas de listas que vem nativamente da tag <li></li>*/
+    list-style: none;
 }
 
 .stacks ul li img {
     width: 30px;
-    height: auto; /*o auto serve para deixar automático*/
-    transition: transform .3s ease; /*colocamos quem vai receber o transition, o tempo e depois o efeito*/
+    height: auto; 
+    transition: transform .3s ease; 
 }
 
-.stacks ul li div img:hover { /*não entendi a função do hover; não entendi a função do transform e do cursor*/
+.stacks ul li div img:hover {
     transform: scale(1.3);
     cursor: pointer;
 }
 
-.stacks ul li div:hover::after { /* 2x dois pontos after é uma pseudo-elemento que serve para adicionarmos propriedades*/
+.stacks ul li div:hover::after {
     content: attr(data);
     position: absolute;
     top: 50px;
@@ -235,62 +231,35 @@ body {
     justify-content: center;
     align-items: center;
     
-    position: relative; /*position pai*/
+    position: relative; 
     flex-direction: column;
 
-    background-image: url(./img/img-posfundo1.jpg); /*adiciona uma através da tag background-imagem; caminho fácil para colocar uma imagem como fundo do site*/
-    background-size: cover; /*corrigi o tamanho da imagem como base no height e width indicados acima*/
-    background-position: top center; /*tem que começar no topo e centralizada*/
+    background-image: url(./img/img-posfundo1.jpg);
+    background-size: cover; 
+    background-position: top center; 
 
     z-index: 1;
 }
 
-
-.person-background::after {/*:: after é um pseudo-elentento*/
+.person-background::after {
     content: "" ;
-    position: absolute; /*position filho*/
+    position: absolute; 
     top: 0; 
     left: 0;
 
     height: 100%;
     width: 100%;
 
-    opacity: 7; /*opacidade do efeito que colocamos*/
-    z-index: -1; /*serve para colocar hierarquia, ou seja, quem tiver a maior hierarquia fica na frente*/
+    opacity: 7; 
+    z-index: -1;
 
     background: 
-        linear-gradient(270deg, transparent 30%, var(--color-darkblue)), /*linear-gradient serve para colocar efeito gradiente (esfumado) na imagem; o 90deg é a posição dos graus de desejamos colocar o efeito ( nesse caso, o efeito está sendo colocado a 90º graus, ou seja, lado direito), transparent é o efeito desejado; 30% é a intensidade de cor do esfumado (quanto maior o numero, mais claro, e quanto menor mais escuro fica*/
+        linear-gradient(270deg, transparent 30%, var(--color-darkblue)),
         linear-gradient(90deg, transparent 30%, var(--color-darkblue)),
-        linear-gradient(10deg, transparent 65%, var(--color-darkblue)); /*quando colocamos vários lineares gradientes, precisamos colocar VIRGULA para separa-los*/
+        linear-gradient(10deg, transparent 65%, var(--color-darkblue)); 
 }
 
-
-/* .wrapper-profile-photo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 14px;
-    margin: 20px 15px; 
-
-    border-radius: 50%;
-     background:
-        radial-gradient(rgba(0,0,0,0.15) 60%, transparent 0),
-        radial-gradient(#000 68%, transparent 0),
-        linear-gradient(to top right, #ffa500 0%, #ff1493 100%); 
-} */
-
-/* .wrapper-profile-photo img { /*dá pra acessar a tag wrapper tanto pelo nome dela completo, quanto pelo nome de sua classe
-    width: 100%; 
-    height: 100px; fiz alteração no tamanho da imagem por conta
-
-    border-radius: 50%; /*faz arredondamento nas arrestaas das imagens
-
-}  2:25:41 ---- serve para colocar a foto ************ */
-
-
 .links a img {
-    /* margin-top: auto; */
     width: 30px;
     height: 30px;
 
@@ -303,8 +272,6 @@ body {
     transform: scale(1.15);
     filter: brightness(1);
 }
-
-/*FINAL DA PRIMEIRA AULA*/
 
 #about {
     height: 100vh;
@@ -460,17 +427,6 @@ body {
     color: var(--color-white);
 }
 
-/* .wrapper-projects {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-
-    height: 500px;
-    
-    margin-top: 2rem;
-} */
-
 .container-projects {
     height: 100%;
     width: 100%;
@@ -478,7 +434,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .swiper {
@@ -497,14 +452,10 @@ body {
 }
 
 .card-project {
-    /* width: 320px; 
-    height: 450px; */
-
     height: 100%;
     width: 100%;
 
     padding: 30px 20px 20px;
-    /* margin: 0px 10px; */
 
     position: relative;
     background: var(--color-white);
@@ -532,17 +483,6 @@ body {
 
     z-index: -1;
 }
-
-/* .content-project {
-    height: 100%;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    z-index: 1;
-
-} */
 
 .image-project {
     max-height: 240px;
@@ -721,25 +661,22 @@ body {
     color: var(--color-white);
 }
 
-
-
- /*a cor "natural" do h1 ficou como transparente, e adicionamos a animação com a cor branca para que quando o efeito chegue em 100%, a cor determinada (branca), fique em evidência*/ 
-@keyframes written_text {/*o keyframes é o responsável por gerenciar a animação que adicionamos ao site; o written_tex é o nome da variável*/
-    100% { /*condição da variável de todo o texto de boas vindas*/
+@keyframes written_text {
+    100% {
         color: var(--color-white); 
     }
 }
 
 
-@keyframes written_text_name {/*o keyframes é o responsável por gerenciar a animação que adicionamos ao site; o written_tex é o nome da variável, e o name no final é um novo nome na variavel para que o sistema não confunda as duas tags*/
-    100% { /*condição da variável da parte do meu nome*/
+@keyframes written_text_name {
+    100% { 
         color: var(--color-pink); 
     }
 }
 
 
-@keyframes written_text_box {/*o keyframes é o responsável por gerenciar a animação que adicionamos ao site; o written_tex é o nome da variável, e o name no final é um novo nome na variavel para que o sistema não confunda as duas tags*/
-    50% { /*condição da variável da parte do meu nome*/
+@keyframes written_text_box {
+    50% {
         width: 100%;
         left: 0;
     }
@@ -842,13 +779,11 @@ body {
     width: 96px;
     height: 96px;
     transform: rotate(45deg);
-    /* opacity: 7; */
-    /* z-index: 1; */
    }
    
    .loader-square {
     position: absolute;
-    /* z-index: -1; */
+    
     top: 0;
     left: 0;
     width: 28px;
